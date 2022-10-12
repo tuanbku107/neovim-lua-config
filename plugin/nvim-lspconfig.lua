@@ -112,10 +112,10 @@ nvim_lsp.tailwindcss.setup {
   capabilities = capabilities
 }
 
-nvim_lsp.vuels.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
+--nvim_lsp.vuels.setup {
+--  on_attach = on_attach,
+--  capabilities = capabilities
+--}
 
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
