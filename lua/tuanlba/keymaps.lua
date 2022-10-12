@@ -1,4 +1,5 @@
 local keymap = vim.keymap
+local api = vim.api
 keymap.set('i','<Tab>','<Esc>')
 keymap.set('n', 'x', '"_x')
 
@@ -32,3 +33,12 @@ keymap.set('n', '<C-w><left>', '<C-w><')
 keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
+
+
+-- Telescope File-browser
+api.nvim_set_keymap(
+  "n",
+  "<space>fb",
+  ":Telescope file_browser",
+  { noremap = true }
+)

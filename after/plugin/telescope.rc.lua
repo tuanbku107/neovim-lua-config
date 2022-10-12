@@ -3,6 +3,8 @@ if (not status) then return end
 local actions = require('telescope.actions')
 local builtin = require("telescope.builtin")
 
+local fb_actions = telescope.extensions.file_browser.actions
+
 local function telescope_buffer_dir()
   return vim.fn.expand('%:p:h')
 end
@@ -18,7 +20,20 @@ telescope.setup {
       },
     },
   },
-  extensions = {},
+  extensions = {
+  file_browser = {
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+      mappings = {
+        ["i"] = {
+          -- your custom insert mode mappings
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    }
+  },
 }
 
 
@@ -26,13 +41,13 @@ vim.keymap.set('n', 'ff',
   function()
     builtin.find_files({
       no_ignore = false,
-      hidden = true
+      hidden = false 
     })
   end)
 vim.keymap.set('n', 'fg', function()
   builtin.live_grep({
       no_ignore = false,
-      hidden = true
+      hidden = false 
   })
 end)
 vim.keymap.set('n', 'fb', function()
@@ -56,3 +71,6 @@ end)
 vim.keymap.set('n', ';e', function()
   builtin.diagnostics()
 end)
+
+telescope.load_extension "file_browser"
+
