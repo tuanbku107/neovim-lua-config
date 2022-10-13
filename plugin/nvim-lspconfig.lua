@@ -31,6 +31,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
@@ -112,10 +113,10 @@ nvim_lsp.tailwindcss.setup {
   capabilities = capabilities
 }
 
---nvim_lsp.vuels.setup {
---  on_attach = on_attach,
---  capabilities = capabilities
---}
+nvim_lsp.vuels.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
 
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

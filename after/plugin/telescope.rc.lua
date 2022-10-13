@@ -14,14 +14,22 @@ telescope.setup {
     mappings = {
       n = {
         ["q"] = actions.close,
+        ["M-c"] = fb_actions.create,
+        ["M-r"] = fb_actions.rename,
+        ["M-d"] = fb_actions.remove,
       },
       i = {
         ["<Tab>"] = actions.close,
       },
     },
+    layout_strategy = 'vertical',
+    layout_config = {
+      vertical = { width = 0.95 }
+      -- other layout configuration here
+    },
   },
   extensions = {
-  file_browser = {
+    file_browser = {
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
@@ -41,13 +49,13 @@ vim.keymap.set('n', 'ff',
   function()
     builtin.find_files({
       no_ignore = false,
-      hidden = false 
+      hidden = false
     })
   end)
 vim.keymap.set('n', 'fg', function()
   builtin.live_grep({
-      no_ignore = false,
-      hidden = false 
+    no_ignore = false,
+    hidden = false
   })
 end)
 vim.keymap.set('n', 'fb', function()
@@ -73,4 +81,3 @@ vim.keymap.set('n', ';e', function()
 end)
 
 telescope.load_extension "file_browser"
-
