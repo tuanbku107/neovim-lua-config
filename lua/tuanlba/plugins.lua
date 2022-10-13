@@ -19,6 +19,7 @@ packer.startup(function(use)
   use 'nvim-telescope/telescope.nvim'
   use 'kyazdani42/nvim-web-devicons'
   use "nvim-telescope/telescope-file-browser.nvim"
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
   -- lsp and autocomplete
   use 'neovim/nvim-lspconfig'
@@ -33,4 +34,15 @@ packer.startup(function(use)
   }
   use('jose-elias-alvarez/null-ls.nvim')
   use('MunifTanjim/prettier.nvim')
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+
 end)
