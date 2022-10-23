@@ -22,6 +22,10 @@ packer.startup(function(use)
   use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
 
   -- lsp and autocomplete
+  use { "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim"
+  }
+
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
@@ -44,5 +48,13 @@ packer.startup(function(use)
       }
     end
   }
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
 
+  -- indent
+  use "lukas-reineke/indent-blankline.nvim"
+  -- colorschema
+  use 'folke/tokyonight.nvim'
 end)

@@ -1,15 +1,15 @@
-
 vim.cmd("autocmd!")
 
+vim.cmd [[colorscheme tokyonight]]
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
-vim.cmd[[highlight Normal ctermfg=grey ctermbg=darkblue]]
+vim.cmd [[highlight Normal ctermfg=grey ctermbg=darkblue]]
 
 vim.wo.number = true
-vim.opt.relativenumber=true
-vim.g.mapleader="<Space>"
+vim.opt.relativenumber = true
+vim.g.mapleader = "<Space>"
 
 vim.opt.title = true
 vim.opt.autoindent = true

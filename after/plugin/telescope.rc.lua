@@ -14,9 +14,9 @@ telescope.setup {
     mappings = {
       n = {
         ["q"] = actions.close,
-        ["M-c"] = fb_actions.create,
-        ["M-r"] = fb_actions.rename,
-        ["M-d"] = fb_actions.remove,
+        ["C-c"] = fb_actions.create,
+        ["C-r"] = fb_actions.rename,
+        ["C-d"] = fb_actions.remove,
       },
       i = {
         ["<Tab>"] = actions.close,
@@ -40,6 +40,7 @@ telescope.setup {
           -- your custom normal mode mappings
         },
       },
+      hidden = true
     }
   },
 }
@@ -49,13 +50,13 @@ vim.keymap.set('n', 'ff',
   function()
     builtin.find_files({
       no_ignore = false,
-      hidden = false
+      hidden = true
     })
   end)
 vim.keymap.set('n', 'fg', function()
   builtin.live_grep({
     no_ignore = false,
-    hidden = false
+    hidden = true
   })
 end)
 vim.keymap.set('n', 'fb', function()
